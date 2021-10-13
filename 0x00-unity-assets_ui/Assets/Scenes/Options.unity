@@ -2377,6 +2377,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 469256741}
     m_Modifications:
+    - target: {fileID: 7144033807667434085, guid: bc2989d6de7fb854c9f00ebbcccfbd52, type: 3}
+      propertyPath: m_Name
+      value: ApplyText
+      objectReference: {fileID: 0}
     - target: {fileID: 7144033808543663580, guid: bc2989d6de7fb854c9f00ebbcccfbd52, type: 3}
       propertyPath: m_Name
       value: ApplyButton
