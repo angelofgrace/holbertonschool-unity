@@ -364,7 +364,7 @@ GameObject:
   - component: {fileID: 297283532}
   - component: {fileID: 297283533}
   m_Layer: 5
-  m_Name: SFX Slider
+  m_Name: SFXSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -948,7 +948,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Options
+  m_Text: OPTIONS
 --- !u!222 &594813254
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2280,6 +2280,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 469256741}
     m_Modifications:
+    - target: {fileID: 672095236076546652, guid: bc2989d6de7fb854c9f00ebbcccfbd52, type: 3}
+      propertyPath: m_Name
+      value: ApplyText
+      objectReference: {fileID: 0}
     - target: {fileID: 672095236149778899, guid: bc2989d6de7fb854c9f00ebbcccfbd52, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2377,6 +2381,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 469256741}
     m_Modifications:
+    - target: {fileID: 3733374537243134773, guid: 878b67f24e0272c48add23cdedda6ce7, type: 3}
+      propertyPath: m_Name
+      value: BackText
+      objectReference: {fileID: 0}
     - target: {fileID: 3733374538900123707, guid: 878b67f24e0272c48add23cdedda6ce7, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
