@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using static Timer;
 
 public class PauseMenu : MonoBehaviour
 {
 
     public GameObject PauseUI;
+
     bool Paused = false;
+    private GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
@@ -34,9 +37,16 @@ public class PauseMenu : MonoBehaviour
 
     public void Pause()
     {
+        // Stop time-based physics, toggle bool, bring up menu
         Time.timeScale = 0.0f;
         Paused = true;
         PauseUI.SetActive(true);
+
+        // Record time and place for potential reload
+        PlayerPrefs.SetFloat("pausedTime", Timer.instance.elapsedTime);
+        PlayerPrefs.SetFloat("playerTransformX", player.transform.position[0]);
+        PlayerPrefs.SetFloat("playerTransformY", player.transform.position[1]);
+        PlayerPrefs.SetFloat("playerTransformZ", player.transform.position[2]);
     }
 
     public void Resume()
@@ -48,6 +58,11 @@ public class PauseMenu : MonoBehaviour
 
     public void Restart()
     {
+        PlayerPrefs.DeleteKey("pausedTime");
+        PlayerPrefs.DeleteKey("playerTransformX");
+        PlayerPrefs.DeleteKey("playerTransformY");
+        PlayerPrefs.DeleteKey("playerTransformZ");
+        PlayerPrefs.DeleteKey("navFromOptions");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Resume();
     }

@@ -9,6 +9,7 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         // Set current scene pref for navigation
+        PlayerPrefs.DeleteKey("navFromOptions");
         PlayerPrefs.SetInt("lastScene", SceneManager.GetActiveScene().buildIndex);
     }
 

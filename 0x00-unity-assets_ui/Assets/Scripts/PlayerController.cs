@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using static Timer;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
@@ -32,6 +33,19 @@ public class PlayerController : MonoBehaviour
 
         // record current scene for navigation
         PlayerPrefs.SetInt("lastScene", SceneManager.GetActiveScene().buildIndex);
+
+        // load previous location and time if returning
+        if (PlayerPrefs.HasKey("navFromOptions") == true)
+        {
+            PlayerPrefs.DeleteKey("navFromOptions");
+
+            this.transform.position = this.transform.position + new Vector3(PlayerPrefs.GetFloat("playerTransformX"), PlayerPrefs.GetFloat("playerTransformY"), PlayerPrefs.GetFloat("playerTransformZ"));
+
+        //    this.transform.position[0] = PlayerPrefs.GetFloat("playerTransformX");
+        //    this.transform.position[1] = PlayerPrefs.GetFloat("playerTransformY");
+        //    this.transform.position[2] = PlayerPrefs.GetFloat("playerTransformZ");
+            Timer.instance.elapsedTime = PlayerPrefs.GetFloat("pausedTime");
+        }
     }
 
     private void OnEnable()

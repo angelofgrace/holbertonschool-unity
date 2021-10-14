@@ -7,12 +7,16 @@ using UnityEngine.SceneManagement;
 public class OptionsMenu : MonoBehaviour
 {
 
-    bool invertCheckboxOn = false;
+    public Toggle yInvert;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+    //    PlayerPrefs.SetInt("navFromOptions", 1);
+        if (PlayerPrefs.GetInt("YInvert") == 1)
+        {
+            yInvert.isOn = true;
+        }
     }
 
     // Update is called once per frame
@@ -23,6 +27,8 @@ public class OptionsMenu : MonoBehaviour
 
     public void Back()
     {
+        PlayerPrefs.SetInt("navFromOptions", 1);
+        
         // return to the previous scene
         if (PlayerPrefs.HasKey("lastScene"))
         {
@@ -35,27 +41,17 @@ public class OptionsMenu : MonoBehaviour
         }
     }
 
-    public void ToggleYInvert()
-    {
-        if (invertCheckboxOn == true)
-        {
-            invertCheckboxOn = false;
-        }
-        else
-        {
-            invertCheckboxOn = true;
-        }
-    }
-
     public void Apply()
     {
+        PlayerPrefs.SetInt("navFromOptions", 1);
+
         // Use PlayerPrefs to save settings changes
         // if inverted, turn off ; if regular, invert
-        if (PlayerPrefs.GetInt("YInvert") == 1 && invertCheckboxOn == false)
+        if (yInvert.isOn == false)
         {
             PlayerPrefs.SetInt("YInvert", 0);
         }
-        else if (PlayerPrefs.GetInt("YInvert") == 0 && invertCheckboxOn == true)
+        else if (yInvert.isOn == true)
         {
             PlayerPrefs.SetInt("YInvert", 1);
         }

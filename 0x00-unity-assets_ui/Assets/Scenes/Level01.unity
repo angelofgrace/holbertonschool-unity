@@ -1011,6 +1011,7 @@ MonoBehaviour:
   timerText: {fileID: 52089515}
   timerActive: 0
   finalTime: {fileID: 686917341}
+  elapsedTime: 0
 --- !u!54 &443753692
 Rigidbody:
   m_ObjectHideFlags: 0

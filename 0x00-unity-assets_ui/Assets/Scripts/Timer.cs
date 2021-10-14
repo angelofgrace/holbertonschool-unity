@@ -10,9 +10,10 @@ public class Timer : MonoBehaviour
     public Text timerText;
     public bool timerActive;
     public Text finalTime;
+    public float elapsedTime;
 
     private TimeSpan timePlaying;
-    private float elapsedTime;
+
     
 
     private void Awake()
@@ -29,7 +30,17 @@ public class Timer : MonoBehaviour
     public void BeginTimer()
     {
         timerActive = true;
-        elapsedTime = 0f;
+
+        // if loading from pause menu
+        if (PlayerPrefs.HasKey("pausedTime"))
+        {
+            elapsedTime = PlayerPrefs.GetFloat("pausedTime");
+            PlayerPrefs.DeleteKey("pausedTime");
+        }
+        else
+        {
+            elapsedTime = 0f;
+        }
 
         StartCoroutine(UpdateTimer());
     }
