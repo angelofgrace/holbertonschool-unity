@@ -12,7 +12,14 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (PlayerPrefs.GetInt("YInvert") == 1)
+        {
+            isInverted = true;
+        }
+        else
+        {
+            isInverted = false;
+        }
     }
 
     // Update is called once per frame
