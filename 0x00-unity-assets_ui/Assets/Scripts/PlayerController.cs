@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
@@ -28,6 +29,9 @@ public class PlayerController : MonoBehaviour
     {
         controller = gameObject.GetComponent<CharacterController>();
         cameraMainTransform = Camera.main.transform;
+
+        // record current scene for navigation
+        PlayerPrefs.SetInt("lastScene", SceneManager.GetActiveScene().buildIndex);
     }
 
     private void OnEnable()
@@ -44,12 +48,14 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        // only apply gravity in the air /  don't bounce on landing
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0)
         {
             playerVelocity.y = 0f;
         }
 
+        // base movement on 3rd person camera perspective / direction
         Vector2 movement = movementControl.action.ReadValue<Vector2>();
         Vector3 move = new Vector3(movement.x, 0, movement.y);
         move = cameraMainTransform.forward * move.z + cameraMainTransform.right * move.x;
@@ -62,6 +68,7 @@ public class PlayerController : MonoBehaviour
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
         }
 
+        // movement nuance math that I don't really understand
         if (movement != Vector2.zero)
         {
             float targetAngle = Mathf.Atan2(movement.x, movement.y) * Mathf.Rad2Deg + cameraMainTransform.eulerAngles.y;
@@ -70,6 +77,7 @@ public class PlayerController : MonoBehaviour
 
         }
 
+        // gravity application / falling movement
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
     }

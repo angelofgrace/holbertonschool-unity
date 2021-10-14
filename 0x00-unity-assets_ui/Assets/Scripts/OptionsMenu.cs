@@ -22,7 +22,7 @@ public class OptionsMenu : MonoBehaviour
     {
         if (PlayerPrefs.HasKey("lastScene"))
         {
-            string lastScene = PlayerPrefs.GetString("lastScene");
+            int lastScene = PlayerPrefs.GetInt("lastScene");
             SceneManager.LoadScene(lastScene);
         }
         else
