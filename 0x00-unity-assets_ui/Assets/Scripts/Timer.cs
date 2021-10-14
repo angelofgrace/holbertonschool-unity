@@ -9,6 +9,7 @@ public class Timer : MonoBehaviour
     public static Timer instance;
     public Text timerText;
     public bool timerActive;
+    public Text finalTime;
 
     private TimeSpan timePlaying;
     private float elapsedTime;
@@ -36,6 +37,11 @@ public class Timer : MonoBehaviour
     public void EndTimer()
     {
         timerActive = false;
+    }
+
+    public void Win()
+    {
+        finalTime.text = timerText.text;
     }
 
     private IEnumerator UpdateTimer()

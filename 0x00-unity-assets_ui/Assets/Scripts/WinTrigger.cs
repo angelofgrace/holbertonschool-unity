@@ -7,6 +7,7 @@ using static Timer;
 public class WinTrigger : MonoBehaviour
 {
     public Text timerText;
+    public GameObject winCanvas;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,8 @@ public class WinTrigger : MonoBehaviour
             Timer.instance.EndTimer();
             timerText.fontSize = 60;
             timerText.color = Color.green;
+            Timer.instance.Win();
+            winCanvas.SetActive(true);
         }
     }
 }
