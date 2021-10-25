@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
     private bool groundedPlayer;
     private Transform cameraMainTransform;
 
+    public Animator animator;
+
 
     private void Start()
     {
@@ -85,10 +87,14 @@ public class PlayerController : MonoBehaviour
         // movement nuance math that I don't really understand
         if (movement != Vector2.zero)
         {
+            animator.SetBool("isRunning", true);
             float targetAngle = Mathf.Atan2(movement.x, movement.y) * Mathf.Rad2Deg + cameraMainTransform.eulerAngles.y;
             Quaternion rotation = Quaternion.Euler(0f, targetAngle, 0f);
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotationSpeed);
-
+        }
+        else
+        {
+            animator.SetBool("isRunning", false);
         }
 
         // gravity application / falling movement
