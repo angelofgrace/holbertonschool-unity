@@ -71,6 +71,8 @@ public class OptionsMenu : MonoBehaviour
             PlayerPrefs.SetInt("YInvert", 1);
         }
 
+        PlayerPrefs.Save();
+
         Back();
     }
 
