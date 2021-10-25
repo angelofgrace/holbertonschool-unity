@@ -11,9 +11,9 @@ public class OptionsMenu : MonoBehaviour
     public Toggle yInvert;
 
     public Slider bgm;
-    public static float bgmSlider = 0.5f;
+    public static float bgmSlider = 1f;
     public Slider sfx;
-    public static float sfxSlider = 0.5f;
+    public static float sfxSlider = 1f;
     public AudioMixer mixer;
 
     // Start is called before the first frame update
