@@ -9,12 +9,15 @@ public class Respawn : MonoBehaviour
     [SerializeField]
     private Transform respawnPoint;
 
+    public Animator animator;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             player.transform.position = respawnPoint.transform.position;
             Physics.SyncTransforms();
+            animator.SetBool("isFalling", true);
         }
     }
 }

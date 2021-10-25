@@ -19,10 +19,12 @@ public class PlayerController : MonoBehaviour
     private float gravityValue = -9.81f;
     [SerializeField]
     private float rotationSpeed = 4f;
-
+    [SerializeField]
+    private bool groundedPlayer;
+    
     private CharacterController controller;
     private Vector3 playerVelocity;
-    private bool groundedPlayer;
+    
     private Transform cameraMainTransform;
 
     public Animator animator;
@@ -69,6 +71,7 @@ public class PlayerController : MonoBehaviour
         if (groundedPlayer)
         {
             animator.SetBool("isJumping", false);
+            animator.SetBool("isFalling", false);
         }
         
         // only apply gravity in the air /  don't bounce on landing

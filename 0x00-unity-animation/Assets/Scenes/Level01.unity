@@ -1173,6 +1173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 134237832}
   respawnPoint: {fileID: 511262809}
+  animator: {fileID: 253909559}
 --- !u!1 &511262805
 GameObject:
   m_ObjectHideFlags: 0
