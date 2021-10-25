@@ -2,39 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Cinemachine;
 
 public class CutsceneController : MonoBehaviour
 {
 
-    public Animator animator;
     private PlayerController playerScript;
     
     public GameObject timer;
-    public GameObject playerController;
+    public GameObject player;
+    public GameObject mainCamera;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerScript = playerController.GetComponent<PlayerController>();
-        IntroAnimation();
+        playerScript = player.GetComponent<PlayerController>();
     }
 
-    private void IntroAnimation()
+    public void IntroAnimation()
     {
-        animator.Play("Intro01");
-        StartCoroutine("OnIntroComplete");
-    }
-
-    IEnumerator OnIntroComplete()
-    {
-        while(animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
-        {
-                yield return null;
-        }
-
+        player.SetActive(true);
         playerScript.enabled = true;
         timer.SetActive(true);
-        animator.Play("MainCamera");
+        mainCamera.SetActive(true);
+        transform.gameObject.SetActive(false);
     }
 }
