@@ -5703,6 +5703,14 @@ PrefabInstance:
       propertyPath: timerText
       value: 
       objectReference: {fileID: 52089515}
+    - target: {fileID: 3274850037581384981, guid: e7dc997eb23da0d42bbbdb10a2bc3173, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: f9b0fa68e7708724689f73b6749a1616, type: 2}
+    - target: {fileID: 3274850037581384981, guid: e7dc997eb23da0d42bbbdb10a2bc3173, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8941914014859674289, guid: e7dc997eb23da0d42bbbdb10a2bc3173, type: 3}
       propertyPath: m_RootOrder
       value: 4
