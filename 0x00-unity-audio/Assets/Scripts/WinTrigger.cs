@@ -8,6 +8,8 @@ public class WinTrigger : MonoBehaviour
 {
     public Text timerText;
     public GameObject winCanvas;
+    public AudioSource bgm;
+    public AudioSource winSong;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,8 @@ public class WinTrigger : MonoBehaviour
             timerText.color = Color.green;
             Timer.instance.Win();
             winCanvas.SetActive(true);
+            bgm.Stop();
+            winSong.Play();
         }
     }
 }
