@@ -189,7 +189,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 48568863}
-  m_LocalRotation: {x: 0.11148113, y: -0.000000016588535, z: 0.000000004569464, w: 0.9937666}
+  m_LocalRotation: {x: 0.11148113, y: 0.000000016588535, z: -0.000000004569464, w: 0.9937666}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -321,7 +321,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 52089515}
   winCanvas: {fileID: 1539673638}
-  bgm: {fileID: 0}
+  bgm: {fileID: 871562312}
   winSong: {fileID: 92602858}
 --- !u!1 &92602857
 GameObject:
@@ -637,6 +637,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PauseUI: {fileID: 1647562978}
+  paused: {fileID: -3708800319709294934, guid: 2c7499c645dfb854181ca0eaf5204707, type: 2}
+  unpaused: {fileID: 3637475064812325427, guid: 2c7499c645dfb854181ca0eaf5204707, type: 2}
 --- !u!4 &173981327
 Transform:
   m_ObjectHideFlags: 0

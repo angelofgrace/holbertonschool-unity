@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 using static Timer;
 
 public class PauseMenu : MonoBehaviour
 {
 
     public GameObject PauseUI;
+    public AudioMixerSnapshot paused;
+    public AudioMixerSnapshot unpaused;
 
     bool Paused = false;
     private GameObject player;
@@ -47,6 +50,8 @@ public class PauseMenu : MonoBehaviour
         PlayerPrefs.SetFloat("playerTransformX", player.transform.position[0]);
         PlayerPrefs.SetFloat("playerTransformY", player.transform.position[1]);
         PlayerPrefs.SetFloat("playerTransformZ", player.transform.position[2]);
+
+        paused.TransitionTo(.01f);
     }
 
     public void Resume()
@@ -54,6 +59,8 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1.0f;
         Paused = false;
         PauseUI.SetActive(false);
+
+        unpaused.TransitionTo(.01f);
     }
 
     public void Restart()

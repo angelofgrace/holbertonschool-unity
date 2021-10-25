@@ -1168,6 +1168,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   yInvert: {fileID: 311751482}
+  bgm: {fileID: 1691371171}
+  sfx: {fileID: 297283533}
+  mixer: {fileID: 24100000, guid: 2c7499c645dfb854181ca0eaf5204707, type: 2}
 --- !u!1 &849285228
 GameObject:
   m_ObjectHideFlags: 0
