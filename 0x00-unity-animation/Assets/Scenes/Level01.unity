@@ -673,6 +673,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 228396232}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &253909559 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3274850037581384981, guid: e7dc997eb23da0d42bbbdb10a2bc3173, type: 3}
+  m_PrefabInstance: {fileID: 8941914014993878073}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &263209624 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1721053028196771428, guid: 5a5d069ee06d90a498f0e459142a1bf5, type: 3}
@@ -5755,6 +5760,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8941914014859674293, guid: e7dc997eb23da0d42bbbdb10a2bc3173, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 253909559}
     - target: {fileID: 8941914014859674302, guid: e7dc997eb23da0d42bbbdb10a2bc3173, type: 3}
       propertyPath: m_Name
       value: Player
