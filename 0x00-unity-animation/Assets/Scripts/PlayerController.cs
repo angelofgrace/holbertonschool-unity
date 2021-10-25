@@ -64,8 +64,14 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        // only apply gravity in the air /  don't bounce on landing
         groundedPlayer = controller.isGrounded;
+
+        if (groundedPlayer)
+        {
+            animator.SetBool("isJumping", false);
+        }
+        
+        // only apply gravity in the air /  don't bounce on landing
         if (groundedPlayer && playerVelocity.y < 0)
         {
             playerVelocity.y = 0f;
@@ -81,6 +87,7 @@ public class PlayerController : MonoBehaviour
         // Changes the height position of the player..
         if (jumpControl.action.triggered && groundedPlayer)
         {
+            animator.SetBool("isJumping", true);
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
         }
 
